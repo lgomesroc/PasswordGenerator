@@ -13,6 +13,20 @@ Este projeto é uma API simples para gerenciar senhas, desenvolvida com Flight P
 - Containerização: `Docker`
 - Gerenciamento de Dependências: `Composer`
 
+## Estrutura das pastas
+```
+.
+└── PasswordGenerator
+    ├── Dockerfile
+    ├── LICENSE
+    ├── README.md
+    ├── app
+    │   ├── index.php
+    │   └── init_db.php
+    ├── composer.json
+    └── docker-compose.yml
+```
+
 ## Como Usar
 ### Pré-requisitos
 - Docker e Docker Compose instalados.
@@ -33,6 +47,25 @@ Isso irá:
 - Construir a imagem do Docker.
 - Instalar as dependências do Composer.
 - Iniciar o servidor PHP na porta 8000.
+
+### Inicializar o contêiner
+Para inicializar o contêiner, digite o comando abaixo:
+```
+docker-compose down
+docker-compose up -d
+```
+
+### Entrar no contêiner
+Para entrar no contêiner, digite o seguinte comando:
+```
+docker exec -it flight_senhas_app bash
+```
+
+### Acessar o banco de dados
+Para acessar o SQLite é só digitar o comando abaixo dentro do contêiner.
+```
+sqlite3 app/database.db
+```
 
 ### Acesse a API:
 
