@@ -67,6 +67,32 @@ Para acessar o SQLite é só digitar o comando abaixo dentro do contêiner.
 sqlite3 app/database.db
 ```
 
+### Criar tabela passwords mo banco de dados
+Digite a query abaixo dentro do SQLite:
+```
+CREATE TABLE IF NOT EXISTS passwords (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+password TEXT NOT NULL,
+created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### Criar tabela users no banco de dados
+Digitar a seguinte query dentro do SQLite:
+```
+CREATE TABLE IF NOT EXISTS users (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+username TEXT NOT NULL UNIQUE,
+password TEXT NOT NULL
+);
+```
+
+###  Executar o script de inicialização do banco de dados
+Digitar o seguinte comando dentro do contêiner:
+```
+php app/init_db.php
+```
+
 ### Acesse a API:
 
 A API estará disponível em http://localhost:8000.
